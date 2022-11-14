@@ -23,14 +23,13 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: read&write
+      contents: read
       packages: write
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
-      actions: read
+      actions: write
     
-      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
