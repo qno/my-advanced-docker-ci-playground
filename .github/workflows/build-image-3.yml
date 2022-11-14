@@ -1,6 +1,12 @@
 name: Docker build Image 3
 
-on:
+on: 
+  registry_package:
+    action:
+      - updated
+    package_name: 
+      - 'my-advanced-docker-ci-playground-image-1'
+      - 'my-advanced-docker-ci-playground-image-2'
   push:
     branches: ["main"]
     paths: ['image-3/**', '.github/workflows/build-image-3.yml']
