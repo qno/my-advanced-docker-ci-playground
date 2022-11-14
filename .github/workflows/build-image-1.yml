@@ -86,13 +86,12 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
         
-      - name: Check if Image 3 exists
+      - name: Check if Image 2 exists
         run: |
           echo "IMAGE_2_EXISTS_RESULT=$(docker manifest inspect ${{ env.REGISTRY }}/${{ github.repository }}-image-2 > /dev/null ; echo $?)" >> $GITHUB_ENV
-          echo "IMAGE_4_EXISTS_RESULT=$(docker manifest inspect ${{ env.REGISTRY }}/${{ github.repository }}-image-4 > /dev/null ; echo $?)" >> $GITHUB_ENV
 
       - name: Repository Dispatch
-        if: ${{ env.IMAGE_4_EXISTS_RESULT == 0 }} 
+        if: ${{ env.IMAGE_3_EXISTS_RESULT == 0 }} 
         uses: peter-evans/repository-dispatch@v2
         with:
           event-type: event-image-1-created
