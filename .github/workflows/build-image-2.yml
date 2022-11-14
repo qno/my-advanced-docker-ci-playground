@@ -15,7 +15,7 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   # ${{ github.repository_owner }}
-  IMAGE_NAME: ${{ github.repository }}-image-1
+  IMAGE_NAME: ${{ github.repository }}-image-2
 
 jobs:
         
