@@ -88,11 +88,11 @@ jobs:
         
       - name: Check if Image 3 exists
         run: |
-          echo "IMAGE_3_EXISTS=$(docker manifest inspect ${{ env.REGISTRY }}/${{ github.repository }}-image-3 > /dev/null ; echo $? == 0)" >> $GITHUB_ENV
-          #docker manifest inspect ghcr.io/qno/my-advanced-docker-ci-playground-image-1 > /dev/null ; echo $?
+          echo "IMAGE_2_EXISTS_RESULT=$(docker manifest inspect ${{ env.REGISTRY }}/${{ github.repository }}-image-2 > /dev/null ; echo $?)" >> $GITHUB_ENV
+          echo "IMAGE_4_EXISTS_RESULT=$(docker manifest inspect ${{ env.REGISTRY }}/${{ github.repository }}-image-4 > /dev/null ; echo $?)" >> $GITHUB_ENV
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
           event-type: event-image-1-created
-        if: ${{ env.IMAGE_3_EXISTS}}
+        if: ${{ env.IMAGE_4_EXISTS_RESULT }} == 0 
