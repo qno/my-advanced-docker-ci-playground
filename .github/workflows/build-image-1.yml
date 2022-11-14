@@ -88,4 +88,5 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           event-type: event-image-1-created
