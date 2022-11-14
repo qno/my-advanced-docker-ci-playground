@@ -92,7 +92,7 @@ jobs:
           echo "IMAGE_4_EXISTS_RESULT=$(docker manifest inspect ${{ env.REGISTRY }}/${{ github.repository }}-image-4 > /dev/null ; echo $?)" >> $GITHUB_ENV
 
       - name: Repository Dispatch
+        if: ${{ env.IMAGE_4_EXISTS_RESULT == 0 }} 
         uses: peter-evans/repository-dispatch@v2
         with:
           event-type: event-image-1-created
-        if: ${{ env.IMAGE_4_EXISTS_RESULT }} == 0 
