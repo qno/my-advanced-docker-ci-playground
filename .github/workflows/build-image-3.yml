@@ -3,12 +3,12 @@ name: Docker build Image 3
 on:
   push:
     branches: ["main"]
-    paths: ['image-2/**', '.github/workflows/build-image-3.yml']
+    paths: ['image-3/**', '.github/workflows/build-image-3.yml']
     # Publish semver tags as releases.
     tags: ['v*.*.*']
   pull_request:
     branches: ["main"]
-    paths: ['image-2/**', '.github/workflows/build-image-3.yml']
+    paths: ['image-3/**', '.github/workflows/build-image-3.yml']
 
 env:
   # Use docker.io for Docker Hub if empty
