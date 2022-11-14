@@ -3,12 +3,12 @@ name: Docker
 on:
   push:
     branches: ["main"]
-    paths: ['image-1/**']
+    paths: ['image-1/**', '.github/workflows/image-1/**']
     # Publish semver tags as releases.
     tags: ['v*.*.*']
   pull_request:
     branches: ["main"]
-    paths: ['image-1/**']
+    paths: ['image-1/**', '.github/workflows/image-1/**']
 
 env:
   # Use docker.io for Docker Hub if empty
